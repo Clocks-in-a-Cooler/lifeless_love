@@ -49,13 +49,10 @@ var test_scene_tree = {
     
     'scene_6': {
         'title': "Scene 6",
-        'text': "You chose to come here, to scene 6. Let's see what happens when you hit the button...",
+        'conversation': [
+            {'character': }
+        ],
         'image': "images/background2.png",
-        'actions': {
-            'Click me': function() {
-                alert("Scene 5 also has a button, just sayin\'.");
-            },
-        },
         'next': 'end',
     },
 };
