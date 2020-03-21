@@ -1,4 +1,6 @@
 // LOTS OF DATA LOTS OF DATA LOTS OF DATA LOTS OF DATA
+
+//I don't think the title is necessary
 var test_scene_tree = {
     'start': {
         'title': "Start",
@@ -12,9 +14,9 @@ var test_scene_tree = {
         'text': "This is scene 2. The next scene is random.",
         'image': 'images/background.png',
         'next': {
-            'scene_3': 0.3,
-            'scene_4': 0.5,
-            'scene_5': 0.2,
+            'scene_3': 0.45,
+            'scene_4': 0.1,
+            'scene_5': 0.45,
         },
     },
     
@@ -24,6 +26,7 @@ var test_scene_tree = {
         'image': "images/background.png",
         'choose': {
             'scene_4': "Scene 4",
+            'scene_5': "Scene 5",
             'scene_6': "Scene 6",
         },
     },
@@ -37,7 +40,7 @@ var test_scene_tree = {
     
     'scene_5': {
         'title': "Scene 5",
-        'text': "You came to this scene! There is only a 20% chance of coming here. Click the button, see what happens.",
+        'text': "You came to this scene! There is only a 20% chance of coming here from scene 2. Click the button, see what happens.",
         'image': "images/background2.png",
         'actions': {
             'Click me': function() {
@@ -48,11 +51,16 @@ var test_scene_tree = {
     },
     
     'scene_6': {
-        'title': "Scene 6",
+        'title': "Scene 6",/*
         'conversation': [
             {'character': }
-        ],
+        ],*/
         'image': "images/background2.png",
         'next': 'end',
+    },
+    
+    'end': {
+        'image': "images/classroom2.png",
+        'text': "the end",
     },
 };

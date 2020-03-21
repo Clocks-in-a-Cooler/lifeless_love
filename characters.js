@@ -21,7 +21,7 @@ var Characters = {
         
     },
     
-    'Zack': {
+    "Zack": {
         
     },
     
