@@ -10,7 +10,14 @@ var scene_tree_crawler = (function() {
     }
     
     function set_text(text) {
-        dialog_box.innerHTML = text;
+        if (typeof text == "string") {
+            dialog_box.innerHTML = text;
+            return;
+        }
+        
+        text.forEach(t => {
+            dialog_box.innerHTML += t + "<br />";
+        });
     }
     
     function add_button(label, onclick) {
@@ -64,17 +71,52 @@ var scene_tree_crawler = (function() {
         });
     }
     
+    var conversation_step;
+    
+    function start_conversation(conversation) {
+        conversation_step = 0;
+        //the conversation is actually like a mini-scene.
+        
+        function advance(conversation) {
+            clear_buttons();
+            set_text("");
+            set_foreground("");
+            if (conversation[conversation_step]) {
+                var line = conversation[conversation_step];
+                set_foreground(Characters[line['character']].poses[line['pose']]); //double nesting WOO HOO
+                set_text(line['character'] + ": " + line.script);
+                add_button("...", () => {
+                    advance(conversation);
+                });
+            } else {
+                add_button("...", () => {
+                    current_scene = tree[current_scene.next];
+                    load_scene();
+                });
+            }
+            
+            conversation_step++;
+        }
+        
+        advance(conversation);
+    }
+    
     //PYRAMID OF DOOM LET'S GO
     function load_scene() {
         clear_buttons();
         if (current_scene.image) set_background(current_scene.image);
-        set_text(current_scene.text);
+        if (current_scene.text) set_text(current_scene.text);
         if (current_scene.onload) {
             current_scene.onload();
         }
         
         if (current_scene.actions) {
             add_action_buttons(current_scene.actions);
+        }
+        
+        if (current_scene.conversation) {
+            start_conversation(current_scene.conversation);
+            return;
         }
          
         if (current_scene.next != null) {

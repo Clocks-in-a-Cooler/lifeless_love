@@ -14,9 +14,9 @@ var test_scene_tree = {
         'text': "This is scene 2. The next scene is random.",
         'image': 'images/background.png',
         'next': {
-            'scene_3': 0.45,
-            'scene_4': 0.1,
-            'scene_5': 0.45,
+            'scene_3': 1,
+            'scene_4': 0,
+            'scene_5': 0,
         },
     },
     
@@ -51,10 +51,12 @@ var test_scene_tree = {
     },
     
     'scene_6': {
-        'title': "Scene 6",/*
+        'title': "Scene 6",
         'conversation': [
-            {'character': }
-        ],*/
+            {'character': 'Delphi', 'pose': 'normal', 'script': 'A conversation in this scene.'},
+            {'character': 'Darren', 'pose': 'normal', 'script': 'yes, it helps compress what could have been several scenes into one.'},
+            {'character': 'Delphi', 'pose': 'normal', 'script': 'Great! Hopefully Ciac doesn\'t screw it up.'},
+        ],
         'image': "images/background2.png",
         'next': 'end',
     },

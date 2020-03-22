@@ -1,7 +1,7 @@
 var Characters = {
-    'Delhpi': { //test character, not actually used.
+    'Delphi': { //test character, not actually used.
         'poses': {
-            'normal': 'stonks man.png',
+            'normal': 'stonks man.png', //placeholder image
         },
         'data': {
             
@@ -10,22 +10,38 @@ var Characters = {
     
     'Darren': {  //test character, not in the actual game.
         'poses': {
-            'normal': 'unicycle frog.jpeg',
+            'normal': 'unicycle frog.jpeg', //another placeholder image
         },
         'data': {
             
         },
-    }
+    },
     
-    'player': {
+    'player_f': {
         
     },
     
-    "Zack": {
+    'player_m': {
         
     },
     
-    'Amy': {
+    'Zack': {
+        
+    },
+    
+    'Sophie': {
+        
+    },
+    
+    'Jacob': {
+        
+    },
+    
+    'Troy': {
+        
+    },
+    
+    'William': {
         
     },
     
@@ -33,7 +49,23 @@ var Characters = {
         
     },
     
+    'Corrette': {
+        
+    },
+    
+    'Argon': {
+        
+    },
+    
     'Coral': {
+        
+    },
+    
+    'Mr Davis': {
+        
+    },
+    
+    'Mr Rainier': {
         
     },
 }

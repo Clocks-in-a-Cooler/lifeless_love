@@ -17,12 +17,12 @@ html, body {
     top: 0; left: 0; right: 0;
     width: 100%; height: 370px;
     margin: auto;
+    background-repeat: no-repeat;
     overflow: hidden;
 }
 
 #stage {
     background-size: fill;
-    background-repeat: no-repeat;
 }
 
 #foreground {
@@ -47,10 +47,16 @@ html, body {
 }
 
 button {
+    margin-right: 5px;
+    float: right;
+    bottom: 5px;
+    min-height: 1.5em;
+    height: 100%;
+    min-width: 2em;
     color: indianred;
     background-color: white;
     border: 1px solid indianred;
-    border-radius: 5px;
+    border-radius: 3px;
     transition: color .5s, background-color .5s;
 }
 
@@ -58,4 +64,12 @@ button:hover {
     background-color: indianred;
     color: white;
     transition: color .5s, background-color .5s;
+}
+
+.thought {
+    color: darkgray;
+}
+
+.dialogue {
+    color: darkorange;
 }
