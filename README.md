@@ -13,3 +13,5 @@ Code by Clocks-in-a-cooler (Ciac).
 * the code for this project is under the [Unlicense](https://unlicense.org/). In other words, it's public domain.
 
 Oh, and before we forget: no liability or warranty. Just sayin'.
+
+Development is slow. I have no idea what I'm doing. Help.
