@@ -1,0 +1,4 @@
+# defining a character
+
+character Sophie
+    with_jacket "sophie_1.png"
