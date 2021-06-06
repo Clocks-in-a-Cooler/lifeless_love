@@ -1,0 +1,29 @@
+# defining characters
+
+# this line, with the number sign in front, is a comment and will be ignored by the computer
+# you can use these to describe parts of the file
+
+# start with the keyword "character", and then the name of the character
+character Sophie
+
+	# for each pose/expression, provide the name of the pose/expression, and then the name of the image file
+	with_jacket sophie_1.png
+	without_jacket sophie_2.png
+
+	# use the keyword "end" to tell the computer that you are finished describing this character
+	end
+
+# here are some examples without the comments
+
+character Argon
+	neutral argon_1.png
+	end
+
+character Corrette
+	shy corrette_1.png
+	end
+
+character Gary
+	smiling gary_1.png
+	eyes_open gary_2.png
+	end
