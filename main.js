@@ -11,13 +11,14 @@ const create_character = require("./create_character.js");
  */
 var main_window;
 
-//Electron.Menu.setApplicationMenu(null);
+// Electron.Menu.setApplicationMenu(null);
 
 function create_window() {
     main_window = new Electron.BrowserWindow({
         width: 800, height: 600,
         minWidth: 800, minHeight: 600,
         show: false, useContentSize: true,
+        resizable: false,
         webPreferences: { nodeIntegration: true, contextIsolation: false }
     });
     
@@ -25,12 +26,13 @@ function create_window() {
         main_window.show();
 
         // load everything here
-        main_window.webContents.send("characters", "sample_character.txt", tokenizer("sample_character.txt"));
+        main_window.webContents.send("characters", "sample_character.txt", create_character(tokenizer("sample_character.txt")));
+        main_window.webContents.send("scenes", "sample_scene.txt", create_scene(tokenizer("sample_scene.txt")));
 
         main_window.webContents.send("loading done");
     });
 
-    main_window.loadFile(path.join(__dirname, "index.html"));
+    main_window.loadFile(path.join(__dirname, "client/index.html"));
 }
 
 Electron.app.whenReady().then(() => {
