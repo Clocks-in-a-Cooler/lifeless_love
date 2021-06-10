@@ -124,5 +124,9 @@ function draw() {
             break;
     }
 
+    buttons.forEach(button => {
+        button.draw(main_context);
+    });
+
     // post-drawing stuff
 }

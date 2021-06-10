@@ -29,4 +29,7 @@ Electron.ipcRenderer.on("loading done", () => {
     main_process_loaded = true;
 });
 
+addEventListener("mousemove", mousemove);
+addEventListener("click", click);
+
 requestAnimationFrame(update);
