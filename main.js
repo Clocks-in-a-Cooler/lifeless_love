@@ -26,8 +26,10 @@ function create_window() {
         main_window.show();
 
         // load everything here
-        main_window.webContents.send("characters", "sample_character.txt", create_character(tokenizer("sample_character.txt")));
-        main_window.webContents.send("scenes", "sample_scene.txt", create_scene(tokenizer("sample_scene.txt")));
+        main_window.webContents.send("characters", "sample_character.txt", create_character(tokenizer("characters.txt")));
+        console.log("characters loaded.");
+        main_window.webContents.send("scenes", "scenes.txt", create_scene(tokenizer("scenes.txt")));
+        console.log("scenes loaded.");
 
         main_window.webContents.send("loading done");
     });

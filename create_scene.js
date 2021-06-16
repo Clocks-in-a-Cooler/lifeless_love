@@ -16,7 +16,7 @@ function create_scene(tokens) {
                     current_scene.background = tokens[index + 1];
                     index += 2;
                     break;
-                case "choose":
+                case "choice":
                     // create a choice thingy, however the hell that will work
                     break;
                 case "goto":

@@ -97,6 +97,59 @@ function draw_width_scaled_image(image, context) {
     context.drawImage(image, 0, 0, image_width, image_height, 0, 0, draw_width, draw_height);
 }
 
+var display_text   = "";
+var skip_scrolling = false;
+function draw_scene() {
+    // lots of magic numbers! messy code! fuck myself and my life...
+
+    if (current_scene == null) return; // failsafe, because something will happen, dammit
+    // draw the scene's background
+    if (current_scene.background != undefined) draw_height_scaled_image(create_sprite("images/" + current_scene.background), main_context);
+    // some information that we'll need
+    var character_name     = current_scene.conversation[conversation_index].character;
+    var character_pose     = current_scene.conversation[conversation_index].pose;
+    var character_dialogue = current_scene.conversation[conversation_index].dialog;
+    if (character_name != "me") { // do not draw Macy
+        draw_height_scaled_image(create_sprite(characters[character_name][character_pose]), main_context);
+    }
+    // draw the nametag, and the dialogue box
+    main_context.save();
+    main_context.fillStyle = "#f48fb1"; // pinkish(TM) colour, standard for visual novels!
+    fill_rounded_rect(main_context, 5, 400, 80, 35, 3);
+    fill_rounded_rect(main_context, 5, 440, 790, 155, 3);
+    main_context.fillStyle    = "white";
+    main_context.font         = "30px sans-serif";
+    main_context.textAlign    = "center";
+    main_context.textBaseline = "middle";
+    main_context.fillText(character_name == "me" ? "Macy" : character_name, 45, 417.5);
+
+    if (character_dialogue.length > display_text.length && frames % 20 != 0) {
+        display_text  += skip_scrolling ? character_dialogue.slice(display_text.length, character_dialogue.length) : character_dialogue.charAt(display_text.length);
+        skip_scrolling = false;
+    }
+
+    main_context.textAlign    = "left";
+    main_context.textBaseline = "top";
+
+    // main_context.fillText(display_text, 8, 443);
+
+    var words     = display_text.split(" ");
+    var draw_text = "";
+    var draw_y    = 443;
+    while (words.length > 0) {
+        if (main_context.measureText(words[0] + " " + draw_text).width > 784) {
+            main_context.fillText(draw_text, 8, draw_y);
+            draw_text = "";
+            draw_y   += 30;
+        } else {
+            draw_text += words.shift() + " ";
+        }
+    }
+    main_context.fillText(draw_text, 8, draw_y);
+
+    main_context.restore();
+}
+
 function draw() {
     main_context.clearRect(0, 0, 800, 600);
     // fill this in later
@@ -116,10 +169,30 @@ function draw() {
             main_context.fillRect(0, 0, 800, 600);
             draw_width_scaled_image(splash, main_context);
             break;
-        case SCENE:
-            ;
+        case GAME_STATES.SCENE:
+            // for now, rendering a dummy scene
+            // draw_height_scaled_image(create_sprite("images/classroom.png"), main_context);
+            // draw_height_scaled_image(create_sprite(characters.Sophie.smiling), main_context);
+            // // name tag
+            // main_context.save();
+            // main_context.fillStyle = "#F48FB1";
+            // fill_rounded_rect(main_context, 5, 400, 80, 35, 3);
+            // fill_rounded_rect(main_context, 5, 440, 790, 155, 3);
+            // main_context.fillStyle    = "white";
+            // main_context.font         = "16px sans-serif";
+            // main_context.textAlign    = "left";
+            // main_context.textBaseline = "top";
+            // main_context.fillText("Hello, world!", 8, 443);
+            // main_context.textBaseline = "middle";
+            // main_context.textAlign    = "center";
+            // main_context.fillText("Sophie", 45, 417.5);
+
+            // main_context.restore();
+
+            // in a separate function
+            draw_scene();
             break;
-        case CREDITS:
+        case GAME_STATES.CREDITS:
             ;
             break;
     }
