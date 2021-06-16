@@ -31,6 +31,34 @@ function clear_buttons() {
 
 var frames = 0;
 
+var current_scene      = null;
+var conversation_index = -1;
+
+function set_scene(scene) {
+    current_scene     = scene;
+    conversation_index = 0;
+}
+
+/**
+ * @typedef {Object} conversation_line 
+ * @property {String} character
+ * @property {String} pose
+ * @property {String} dialog
+ */
+
+/**
+ * @returns {conversation_line}
+ */
+function get_conversation_line() {
+    if (current_scene == null) {
+        return "";
+    }
+    if (conversation_index >= current_scene.conversation.length) {
+        return "";
+    }
+    return current_scene.conversation[conversation_index];
+}
+
 function update() {
     switch (game_state) {
         case GAME_STATES.LOADING:
@@ -46,6 +74,32 @@ function update() {
                 buttons.forEach(button => button.center(new Vector(400, 400)));
             }
             break;
+        case GAME_STATES.SCENE:
+            if (display_text.length == get_conversation_line().dialog.length && !buttons.length) {
+                // add a button
+                if (conversation_index >= current_scene.conversation.length - 1) {
+                    if (current_scene.next) {
+                        // current scene has a next scene, add a button for that
+                    } else {
+                        // current scene has a choice
+                    }
+                } else {
+                    buttons.push(new Button(new Vector(0, 0), "...", () => {
+                        conversation_index += 1;
+                        display_text        = "";
+                        skip_scrolling      = false;
+                        clear_buttons();
+                    }));
+                }
+
+                buttons[0].center(new Vector(750, 550));
+            }
+
+            // this should be in the update function
+            if (get_conversation_line().dialog.length > display_text.length && frames % 20 != 0) {
+                display_text  += skip_scrolling ? get_conversation_line().dialog.slice(display_text.length, get_conversation_line().dialog.length) : get_conversation_line().dialog.charAt(display_text.length);
+                skip_scrolling = false;
+            }
     }
 
     // buttons are updated separately

@@ -1,7 +1,6 @@
 scene start
     # main character has no poses/expressions, so i'm just putting random stuff in its place
     background classroom2.png
-    me no_pose "Having an existential crisis: Who am I? where am I? How am I? Why am I? What am I? If the universe is so big, why won't it fight me?"
     me no_pose "How the hell did I get myself in this situation?"
     me no_pose "I want to run, but it hurts so much."
     me no_pose "I want to yell, but my throat is parched."

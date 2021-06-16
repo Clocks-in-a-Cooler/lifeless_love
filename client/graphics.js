@@ -118,20 +118,19 @@ function draw_scene() {
     fill_rounded_rect(main_context, 5, 400, 80, 35, 3);
     fill_rounded_rect(main_context, 5, 440, 790, 155, 3);
     main_context.fillStyle    = "white";
-    main_context.font         = "30px sans-serif";
+    main_context.font         = "20px sans-serif";
     main_context.textAlign    = "center";
     main_context.textBaseline = "middle";
     main_context.fillText(character_name == "me" ? "Macy" : character_name, 45, 417.5);
 
-    if (character_dialogue.length > display_text.length && frames % 20 != 0) {
-        display_text  += skip_scrolling ? character_dialogue.slice(display_text.length, character_dialogue.length) : character_dialogue.charAt(display_text.length);
-        skip_scrolling = false;
-    }
+    // // this should be in the update function
+    // if (character_dialogue.length > display_text.length && frames % 20 != 0) {
+    //     display_text  += skip_scrolling ? character_dialogue.slice(display_text.length, character_dialogue.length) : character_dialogue.charAt(display_text.length);
+    //     skip_scrolling = false;
+    // }
 
     main_context.textAlign    = "left";
     main_context.textBaseline = "top";
-
-    // main_context.fillText(display_text, 8, 443);
 
     var words     = display_text.split(" ");
     var draw_text = "";
@@ -157,7 +156,7 @@ function draw() {
         case GAME_STATES.LOADING:
             main_context.fillStyle = "deeppink";
             main_context.textAlign = "center";
-            main_context.font      = "30px sans-serif"
+            main_context.font      = "20px sans-serif"
             if (!characters || !scenes) {
                 main_context.fillText("loading", 400, 300);
             } else {
@@ -170,26 +169,6 @@ function draw() {
             draw_width_scaled_image(splash, main_context);
             break;
         case GAME_STATES.SCENE:
-            // for now, rendering a dummy scene
-            // draw_height_scaled_image(create_sprite("images/classroom.png"), main_context);
-            // draw_height_scaled_image(create_sprite(characters.Sophie.smiling), main_context);
-            // // name tag
-            // main_context.save();
-            // main_context.fillStyle = "#F48FB1";
-            // fill_rounded_rect(main_context, 5, 400, 80, 35, 3);
-            // fill_rounded_rect(main_context, 5, 440, 790, 155, 3);
-            // main_context.fillStyle    = "white";
-            // main_context.font         = "16px sans-serif";
-            // main_context.textAlign    = "left";
-            // main_context.textBaseline = "top";
-            // main_context.fillText("Hello, world!", 8, 443);
-            // main_context.textBaseline = "middle";
-            // main_context.textAlign    = "center";
-            // main_context.fillText("Sophie", 45, 417.5);
-
-            // main_context.restore();
-
-            // in a separate function
             draw_scene();
             break;
         case GAME_STATES.CREDITS:

@@ -10,7 +10,7 @@ function create_scene(tokens) {
 
         index += 2;
 
-        while (tokens[index] != "end") {
+        while (tokens[index] != "end" || index > tokens.length) {
             switch (tokens[index]) {
                 case "background":
                     current_scene.background = tokens[index + 1];
@@ -18,6 +18,17 @@ function create_scene(tokens) {
                     break;
                 case "choice":
                     // create a choice thingy, however the hell that will work
+                    index++;
+                    var choices = {};
+                    while (tokens[index] != "end") {
+                        var choice_name      = tokens[index];
+                        var choice_next      = tokens[index + 1];
+                        choices[choice_name] = choice_next;
+
+                        index += 2;
+                    }
+                    current_scene.choice = choices;
+                    index++;
                     break;
                 case "goto":
                     current_scene.next = tokens[index + 1];
@@ -44,10 +55,6 @@ function create_scene(tokens) {
     }
 
     return scenes;
-}
-
-function create_choice(tokens) {
-
 }
 
 module.exports = create_scene;
