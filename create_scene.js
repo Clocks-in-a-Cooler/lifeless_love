@@ -10,7 +10,7 @@ function create_scene(tokens) {
 
         index += 2;
 
-        while (tokens[index] != "end" || index > tokens.length) {
+        while (tokens[index] != "end") {
             switch (tokens[index]) {
                 case "background":
                     current_scene.background = tokens[index + 1];

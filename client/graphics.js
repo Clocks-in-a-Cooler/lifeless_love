@@ -106,28 +106,21 @@ function draw_scene() {
     // draw the scene's background
     if (current_scene.background != undefined) draw_height_scaled_image(create_sprite("images/" + current_scene.background), main_context);
     // some information that we'll need
-    var character_name     = current_scene.conversation[conversation_index].character;
-    var character_pose     = current_scene.conversation[conversation_index].pose;
-    var character_dialogue = current_scene.conversation[conversation_index].dialog;
+    var character_name = current_scene.conversation[conversation_index].character;
+    var character_pose = current_scene.conversation[conversation_index].pose;
     if (character_name != "me") { // do not draw Macy
         draw_height_scaled_image(create_sprite(characters[character_name][character_pose]), main_context);
     }
     // draw the nametag, and the dialogue box
     main_context.save();
     main_context.fillStyle = "#f48fb1"; // pinkish(TM) colour, standard for visual novels!
-    fill_rounded_rect(main_context, 5, 400, 80, 35, 3);
+    fill_rounded_rect(main_context, 5, 400, 180, 35, 3);
     fill_rounded_rect(main_context, 5, 440, 790, 155, 3);
     main_context.fillStyle    = "white";
     main_context.font         = "20px sans-serif";
     main_context.textAlign    = "center";
     main_context.textBaseline = "middle";
-    main_context.fillText(character_name == "me" ? "Macy" : character_name, 45, 417.5);
-
-    // // this should be in the update function
-    // if (character_dialogue.length > display_text.length && frames % 20 != 0) {
-    //     display_text  += skip_scrolling ? character_dialogue.slice(display_text.length, character_dialogue.length) : character_dialogue.charAt(display_text.length);
-    //     skip_scrolling = false;
-    // }
+    main_context.fillText(character_name == "me" ? "Macy" : character_name, 95, 417.5);
 
     main_context.textAlign    = "left";
     main_context.textBaseline = "top";

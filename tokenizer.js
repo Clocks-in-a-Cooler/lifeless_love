@@ -17,6 +17,8 @@ function tokenize(file) {
     lines.forEach(line => {
         var matches = line.match(token_pattern);
 
+        if (matches == null) return; // ugh
+
         // matches is of type RegExpMatchArray, which does not have forEach()
         for (var c = 0; c < matches.length; c++) {
             var match = matches[c];

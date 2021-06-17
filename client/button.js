@@ -32,6 +32,8 @@ class Button {
      */
     center(position) {
         this.position = position.subtract(this.size.multiply(0.5));
+
+        return this;
     }
 
     /**
