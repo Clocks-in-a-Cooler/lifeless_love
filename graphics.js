@@ -10,7 +10,7 @@ var main_context  = main_canvas.getContext("2d");
  */
  function create_sprite(path) {
     var elt = document.createElement("img");
-    elt.src = __dirname + "/" + path;
+    elt.src = path;
     return elt;
 }
 
