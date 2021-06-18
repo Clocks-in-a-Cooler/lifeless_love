@@ -102,7 +102,7 @@ function update() {
                             var next_scene = scenes[choices[label]];
                             buttons.push(new Button(new Vector(0, 0), label, () => {
                                 set_scene(next_scene);
-                            }).center(new Vector(750, 550 - index * 33)));
+                            }).center(new Vector(750, 550 - index * 33)).align(new Vector(780, 0), RIGHT));
                         });
                     }
                 } else {

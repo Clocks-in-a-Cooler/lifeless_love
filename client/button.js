@@ -1,3 +1,8 @@
+const TOP    = 1;
+const BOTTOM = 2;
+const LEFT   = 4;
+const RIGHT  = 8;
+
 class Button {
     /**
      * 
@@ -14,7 +19,10 @@ class Button {
         this.position = position;
         this.label    = label;
         this.action   = action;
-        this.size     = new Vector(label.length * 22 + 15, 30);
+
+        main_context.font = "20px sans-serif";
+        var text_width    = main_context.measureText(label).width;
+        this.size         = new Vector(text_width + 50, 30);
 
         this.colours = {
             outline_colour: colours.outline_colour || "white",
@@ -33,6 +41,27 @@ class Button {
     center(position) {
         this.position = position.subtract(this.size.multiply(0.5));
 
+        return this;
+    }
+
+    /**
+     * 
+     * @param {Vector} position 
+     * @param {Number} alignment
+     */
+    align(position, alignment) {
+        if (alignment & TOP) {
+            this.position.y = position.y;
+        }
+        if (alignment & LEFT) {
+            this.position.x = position.x;
+        }
+        if (alignment & RIGHT) {
+            this.position.x = position.x - this.size.x;
+        }
+        if (alignment & BOTTOM) {
+            this.position.y = position.y - this.size.y;
+        }
         return this;
     }
 

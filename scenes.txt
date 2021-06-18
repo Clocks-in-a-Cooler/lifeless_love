@@ -48,5 +48,49 @@ scene start_continue
     me no_pose "(Sophie rips out a piece of paper and grabs my book from my hands. She starts rapidly copying my homework.)"
     me no_pose "(Honestly, if she put as much effort into studying as she did into copying, she'd be much smarter than me. Oh well.)"
     "Mr. Rainier" peeved "What was that about old Rainier not noticing?"
-    goto trouble
+    me no_pose "Crap..."
+    Sophie smiling "Oh! Hi, Mr. Rainier..."
+    Sophie shy "How long were you there..."
+    "Mr. Rainier" peeved "You see, copying homework and insulting me is not something I could let slide, Sophie."
+    Sophie shy "Yeah, totally... hehe..."
+    "Mr. Rainier" peeved "You have detention. Here's your slip."
+    choice
+        "Keep quiet" keep_quiet
+        "Stand up for Sophie" stand_up_for_sophie
+        "Sneak back to my seat" sneak_back_to_seat
+        end
+    end
+
+scene keep_quiet
+    background classroom2.png
+    "Mr. Rainier" peeved "Oh, I forgot about you, Macy."
+    "Mr. Rainier" peeved "You have detention too."
+    goto detention
+    end
+
+scene stand_up_for_sophie
+    background classroom2.png
+    me no_pose "Hey, it's not her fault."
+    me no_pose "I let her copy..."
+    "Mr. Rainier" peeved "Yes. I know that."
+    "Mr. Rainier" peeved "When I said \"you have detention\", I meant you both."
+    goto detention
+    end
+
+scene sneak_back_to_seat
+    background classroom2.png
+    me no_pose "(I start to sneak back to my seat.)"
+    "Mr. Rainier" peeved "And where do you think you're going?"
+    "Mr. Rainier" peeved "I'm not done with you."
+    "Mr. Rainier" peeved "You have detention with her."
+    goto detention
+    end
+
+scene detention
+    background classroom2.png
+    Sophie peeved "Wait, that's not fair! She didn't do anything!"
+    "Mr. Rainier" peeved "I believe she allowed you to copy her homework."
+    "Mr. Rainier" peeved "She is as guilty as you."
+    Sophie peeved "No, I forced her! She did nothing wrong!"
+    goto detention
     end
