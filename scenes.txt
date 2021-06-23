@@ -1,6 +1,16 @@
 scene start
+    background deeppink
+    # a simple scene to tell people that this is still a demo
+    TheAyeStride no_pose "Hello there! Welcome to the demo for Lifeless Love!"
+    TheAyeStride no_pose "It's just me and Clocks-in-a-cooler developing this game, so please adjust your expectations."
+    "Clocks-in-a-cooler" no_pose "A lot of stuff is still missing and the game is very much incomplete, but this is what the game so far feels like."
+    TheAyeStride no_pose "Okay, here we go! Enjoy the demo!"
+    goto demo
+    end
+
+scene demo
     # main character has no poses/expressions, so i'm just putting random stuff in its place
-    background classroom2.png
+    background black
     me no_pose "How the hell did I get myself in this situation?"
     me no_pose "I want to run, but it hurts so much."
     me no_pose "I want to yell, but my throat is parched."
@@ -12,6 +22,11 @@ scene start
     me no_pose "I can see my gate to safety..."
     me no_pose "It's so close..."
     me no_pose "(throws open the classroom door)"
+    goto meet_sophie
+    end
+
+scene meet_sophie
+    background classroom2.png
     me no_pose "I made it!"
     me no_pose "(everyone in my class stares back at me and my sudden burst)"
     Sophie smiling "You sure did, and I'm sure everyone knows it too."
@@ -88,9 +103,117 @@ scene sneak_back_to_seat
 
 scene detention
     background classroom2.png
+    # do not fight with teachers. it never ends well for you.
+    # Sophie and Macy are going to learn this the hard way.
     Sophie peeved "Wait, that's not fair! She didn't do anything!"
     "Mr. Rainier" peeved "I believe she allowed you to copy her homework."
     "Mr. Rainier" peeved "She is as guilty as you."
     Sophie peeved "No, I forced her! She did nothing wrong!"
-    goto detention
+    "Mr. Rainier" peeved "I believe she did not refuse."
+    "Mr. Rainier" peeved "And if you continue this foolish bickering with me I'll give you two detentions instead of one. The more the merrier."
+    Sophie peeved "Grr..."
+    me no_pose "It's fine, Sophie, at least it'll be bearable with you."
+    me no_pose "(Sophie shoots a dirty look at Mr. Rainier.)"
+    me no_pose "(The rest of the day drags on.)"
+    me no_pose "(Sophie shoots dirty looks at Mr. Rainier during his lectures.)"
+    me no_pose "(He either does not notice or he does not care. Or both.)"
+    me no_pose "(Finally, it's the the end of the day.)"
+    me no_pose "(Time to serve my first detention. I'm actually not upset that Sophie and Mr. Rainier got me in here.)"
+    me no_pose "(I was always curious about what is like in this room.)"
+    me no_pose "(Sophie stops me just before we enter the room.)"
+    Sophie shy "Okay, we're here!"
+    Sophie smiling "First off, Macy, I've got two rules for you before we enter."
+    Sophie smiling "Rule number one: keep your head down for the whole hour."
+    me no_pose "And number two?"
+    Sophie shy "Rule number two: don't interfere with anyone!"
+    Sophie shy "The boys in detention like to harass each other. It's best to ignore them, trust me."
+    me no_pose "(As if I was planning to...)"
+    goto detention_trouble
+    end
+
+scene detention_trouble
+    background spooky_classroom2.png
+    me no_pose "(I open the door and sneak inside.)"
+    me no_pose "(I see five boys and two girls in the room.)"
+    me no_pose "(One of the boys is lost in his book and doesn't look up.)"
+    me no_pose "(Everyone else stares back at me.)"
+    me no_pose "(I notice one of my friends is here.)"
+    me no_pose "(His name is Gary, and he gives me an awkward smile.)"
+    me no_pose "(He has a habit of stirring up trouble, so it's not surprising that he's here in detention.)"
+    me no_pose "(The teacher \"supervising\" us is too focused on his newspaper to notice me.)"
+    me no_pose "(After Sophie and I put our detention slips onto the teacher's desk, we slip into adjacent seats.)"
+    me no_pose "(What are we going to do for the next hour? I'm not reflecting on what I did wrong, that's for sure.)"
+    me no_pose "Pssst! What do we do while we're here?"
+    Sophie shy "Beats me. Usually work or reading or whatever we want."
+    Sophie shy "I actually don't know the point of detention."
+    Sophie shy "This is pretty much like the \"free time\" we get in class."
+    "Mr. Davis" shy "Sophie. This is detention, not social time."
+    "Mr. Davis" shy "Be quiet or I'll be forced to silence you."
+    Sophie shy "Yes, Mr Davis."
+    me no_pose "(Sophie turns back to me and whispers.)"
+    Sophie peeved "Don't worry, he's always like that."
+    me no_pose "(I nod toward Sophie.)"
+    me no_pose "(I pull out my phone and start fiddling around.)"
+    me no_pose "(I soon lose myself in memes about if/else chains and other showcases of bad code. Oddly, it looks exactly like the stuff we're doing in computer science class."
+    me no_pose "(Mr. Davis doesn't care that I'm on my phone the whole time. At least the detention room is climate-controlled, unlike a bus shelter.)"
+    me no_pose "(A while later, Mr. Davis stands up and walks toward the door.)"
+    "Mr. Davis" shy "I'll be right back. Don't even think about leaving."
+    "Mr. Davis" shy "Anyone who attempts to escape will be neutralized."
+    "Corrette" shy "Escape?"
+    # Gary does not have a "shocked" expression, so i'll use this one instead
+    "Gary" eyes_open "N-neutralized? D-does he mean he'll kill us!?"
+    "Mr. Davis" shy "Yes. Now wait for me."
+    "Mr. Davis" shy "Also, there are cameras here. I'll know if you leave."
+    me no_pose "(Mr. Davis hurries off, doing who-knows-what. As soon as he's gone, Sophie turns to me.)"
+    Sophie smiling "Y'know there's a rumour that Mr. Davis wanted to be an executioner. But because there's no death sentence anymore, he got stuck with being a high school teacher instead."
+    Troy smirking "That scruffy old geezer's finally gone!"
+    Jacob peeved "Hey, Troy. Sit down, you're going to get us all in trouble."
+    Troy smirking "Mind your own business, Reed Boy!"
+    Jacob peeved "My name's Jacob, you egotastical maniac!"
+    me no_pose "(Troy scurries away, ignoring Jacob.)"
+    me no_pose "(He approaches the kid who is buried in his book. Probably to stir something else up.)"
+    Troy smirking "Hey there, Raccoon Eyes. Whatcha reading there?"
+    # we're going to need a pose of Zack with a book, so...
+    me no_pose "(The reading boy doesn't lift his head from his book.)"
+    Zack speaking "If you put as much effort into your \"creative\" nicknames, you wouldn't be here."
+    # we're going to need a "pissed" expression for Troy, too
+    Troy smirking "Don't talk to me like you're so smart, Zack!"
+    Zack speaking "Oh, so you do know my name."
+    Zack speaking "I assumed you didn't know it because your pea-sized brain is too small to remember such things."
+    me no_pose "(Troy then grabs Zack by the collar of the shirt.)"
+    Troy smirking "I'm in here because of you!"
+    Troy smirking "If you didn't make such a fuss during class, we wouldn't be here!"
+    # Zack will need a pissed expression, too. a lot of people are getting peeved
+    Zack speaking "So you're saying I should've just let you cheat off my paper?"
+    Zack speaking "Don't make me laugh!"
+    Corrette shy "Guys... please stop fighting..."
+    Troy smirking "Why don't you shut up, Maid Girl?"
+    me no_pose "(It's getting bad in here.)"
+    me no_pose "(Should I do something? Or follow Sophie's advice, keep quiet and watch?)"
+    me no_pose "(Troy stares at the mystic book in Zack's hands.)"
+    me no_pose "(When Troy attempts to grab the book, Zack firmly holds onto it.)"
+    Troy smirking "What's so good about this book?"
+    Zack speaking "Let it go! You'll rip it!"
+    Troy smirking "Oh? Is it really that special?"
+    Troy smirking "In that case..."
+    me no_pose "(Troy suddenly and forcefully pulls the book away, taking Zack by surprise.)"
+    me no_pose "(Zack is still firmly gripping the book, though, and so he ends up holding a few pages ripped out of the book.)"
+    # maybe add a "desperate" expression for Zack?
+    Zack speaking "You bastard!"
+    Troy smirking "Who's the one giving mean nicknames now?"
+    me no_pose "(Troy opens the book and starts glancing through it.)"
+    Troy smirking "Wow, Zack. Never knew you were a cultist!"
+    Zack speaking "I hope you die! Give it back!"
+    Troy smirking "That's not a nice thing to say!"
+    Troy smirking "What's this?"
+    Troy smirking "\"Sselefil eht fo dnal eht, dlrow tcefrep eht ot og su tel\"?"
+    me no_pose "(The whole room starts to shake...)"
+    goto finish
+    end
+
+scene finish
+    background black
+    me no_pose "The end..."
+    me no_pose "More to come..."
+    goto finish
     end

@@ -31,6 +31,9 @@ character Sophie
     peeved sophie_4.png
     end
 
+character Troy
+    smirking troy_1.png
+
 character "Mr. Rainier"
     peeved teacher_a_1.png
     end
