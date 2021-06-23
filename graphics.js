@@ -104,11 +104,18 @@ function draw_scene() {
 
     if (current_scene == null) return; // failsafe, because something will happen, dammit
     // draw the scene's background
-    if (current_scene.background != undefined) draw_height_scaled_image(create_sprite("images/" + current_scene.background), main_context);
+    if (current_scene.background != undefined) {
+        if (current_scene.background.slice(-4) == ".png") {
+            draw_height_scaled_image(create_sprite("images/" + current_scene.background), main_context);
+        } else {
+            main_context.fillStyle = current_scene.background;
+            main_context.fillRect(0, 0, 800, 600);
+        }
+    }
     // some information that we'll need
     var character_name = current_scene.conversation[conversation_index].character;
     var character_pose = current_scene.conversation[conversation_index].pose;
-    if (character_name != "me") { // do not draw Macy
+    if (["me", "Clocks-in-a-cooler", "TheAyeStride"].indexOf(character_name) == -1) { // do not draw Macy or the developers
         draw_height_scaled_image(create_sprite(characters[character_name][character_pose]), main_context);
     }
     // draw the nametag, and the dialogue box

@@ -1,0 +1,52 @@
+# we'll add more poses/expressions as they come in
+
+character Argon
+    neutral argon_1.png
+    suspicious argon_2.png
+    end
+
+character Corrette
+    shy corrette_1.png
+    end
+
+character Coral
+    smiling ghost_1.png
+    talking ghost_2.png
+    end
+
+character Gary
+    eyes_open gary_1.png
+    smiling gary_2.png
+    end
+
+character Jacob
+    shy jacob_1.png
+    smiling jacob_2.png
+    peeved jacob_3.png
+    end
+
+character Sophie
+    shy sophie_2.png
+    smiling sophie_3.png
+    peeved sophie_4.png
+    end
+
+character Troy
+    smirking troy_1.png
+
+character "Mr. Rainier"
+    peeved teacher_a_1.png
+    end
+
+character "Mr. Davis"
+    shy teacher_b_1.png
+    end
+
+character William
+    shy william_1.png
+    end
+
+character Zack
+    neutral zack_1.png
+    speaking zack_2.png
+    end
