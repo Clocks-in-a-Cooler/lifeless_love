@@ -33,6 +33,7 @@ character Sophie
 
 character Troy
     smirking troy_1.png
+    end
 
 character "Mr. Rainier"
     peeved teacher_a_1.png
