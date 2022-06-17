@@ -9,6 +9,6 @@
     "repository": "https://github.com/clocks-in-a-cooler/lifeless_love",
     "author": "TheAyeStride",
     "devDependencies": {
-        "electron": "^13.0.1"
+        "electron": "^15.5.5"
     }
 }
